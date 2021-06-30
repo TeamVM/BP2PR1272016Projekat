@@ -1,0 +1,19 @@
+﻿<Window x:Class="PozoristeClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PozoristeClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="400">
+    <Grid>
+        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="80,85,0,0" Command="{Binding LoginCommand}"/>
+        <Button Content="Registration" HorizontalAlignment="Left" Margin="220,85,0,0" VerticalAlignment="Top" Width="100" Command="{Binding RegistracijaCommand}"/>
+        <Button Content="Dodaj Salu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="80,36,0,0" Command="{Binding KreirajSaluCommand}"/>
+        <Button Content="Dodaj Repertoar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="220,36,0,0" Command="{Binding KreirajSaluCommand}"/>
+        <Button Content="Dodaj Sediste" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="220,131,0,0" Command="{Binding KreirajSaluCommand}"/>
+        <Button Content="Dodaj Predstavu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="80,131,0,0" Command="{Binding KreirajSaluCommand}"/>
+        <!--<Button Content="Kreiraj Pozoriste" HorizontalAlignment="Left" Margin="132,129,0,0" VerticalAlignment="Top" Width="135" Command="{Binding KreirajPozoristeCommand}"/>-->
+
+    </Grid>
+</Window>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container3">
+    <EntitySetMapping Name="Pozoristes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Pozoriste)">
+        <MappingFragment StoreEntitySet="Pozoristes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Grad" ColumnName="Grad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repertoars">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Repertoar)">
+        <MappingFragment StoreEntitySet="Repertoars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Predstavas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Predstava)">
+        <MappingFragment StoreEntitySet="Predstavas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Trajanje" ColumnName="Trajanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projekcijas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Projekcija)">
+        <MappingFragment StoreEntitySet="Projekcijas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PredstavaId" ColumnName="PredstavaId" />
+          <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+          <ScalarProperty Name="PocetakPredstave" ColumnName="PocetakPredstave" />
+          <ScalarProperty Name="KrajPredstave" ColumnName="KrajPredstave" />
+          <ScalarProperty Name="NajavaId" ColumnName="NajavaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sala)">
+        <MappingFragment StoreEntitySet="Salas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PozoristeId" ColumnName="PozoristeId" />
+          <ScalarProperty Name="Kapacitet" ColumnName="Kapacitet" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sedistes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sediste)">
+        <MappingFragment StoreEntitySet="Sedistes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+          <ScalarProperty Name="Red" ColumnName="Red" />
+          <ScalarProperty Name="Kolona" ColumnName="Kolona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisniks">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Korisnik)">
+        <MappingFragment StoreEntitySet="Korisniks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+          <ScalarProperty Name="Rola" ColumnName="Rola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Najavas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Najava)">
+        <MappingFragment StoreEntitySet="Najavas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RepertoarId" ColumnName="RepertoarId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kartas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Karta)">
+        <MappingFragment StoreEntitySet="Kartas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SedisteId" ColumnName="SedisteId" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="ProjekcijaId" ColumnName="ProjekcijaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Glumacs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Glumac)">
+        <MappingFragment StoreEntitySet="Glumacs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="GlumacPredstava" TypeName="Model1.GlumacPredstava" StoreEntitySet="GlumacPredstava">
+      <EndProperty Name="Glumac">
+        <ScalarProperty Name="Id" ColumnName="Glumacs_Id" />
+      </EndProperty>
+      <EndProperty Name="Predstava">
+        <ScalarProperty Name="Id" ColumnName="Predstavas_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="NajavaPredstava" TypeName="Model1.NajavaPredstava" StoreEntitySet="Najavas">
+      <EndProperty Name="Predstava">
+        <ScalarProperty Name="Id" ColumnName="Predstava_Id" />
+      </EndProperty>
+      <EndProperty Name="Najava">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PozoristeKorisnik" TypeName="Model1.PozoristeKorisnik" StoreEntitySet="Pozoristes">
+      <EndProperty Name="Korisnik">
+        <ScalarProperty Name="Id" ColumnName="Korisnik_Id" />
+      </EndProperty>
+      <EndProperty Name="Pozoriste">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PozoristeRepertoar" TypeName="Model1.PozoristeRepertoar" StoreEntitySet="Repertoars">
+      <EndProperty Name="Pozoriste">
+        <ScalarProperty Name="Id" ColumnName="Pozoriste_Id" />
+      </EndProperty>
+      <EndProperty Name="Repertoar">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

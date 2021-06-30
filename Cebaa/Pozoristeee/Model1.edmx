@@ -1,0 +1,700 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="Pozoristes" EntityType="Model1.Store.Pozoristes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Repertoars" EntityType="Model1.Store.Repertoars" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Predstavas" EntityType="Model1.Store.Predstavas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Projekcijas" EntityType="Model1.Store.Projekcijas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Salas" EntityType="Model1.Store.Salas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sedistes" EntityType="Model1.Store.Sedistes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Korisniks" EntityType="Model1.Store.Korisniks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Najavas" EntityType="Model1.Store.Najavas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kartas" EntityType="Model1.Store.Kartas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Glumacs" EntityType="Model1.Store.Glumacs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GlumacPredstava" EntityType="Model1.Store.GlumacPredstava" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PozoristeSala" Association="Model1.Store.PozoristeSala">
+      <End Role="Pozoriste" EntitySet="Pozoristes" />
+      <End Role="Sala" EntitySet="Salas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GlumacPredstava_Glumac" Association="Model1.Store.FK_GlumacPredstava_Glumac">
+      <End Role="Glumac" EntitySet="Glumacs" />
+      <End Role="GlumacPredstava" EntitySet="GlumacPredstava" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GlumacPredstava_Predstava" Association="Model1.Store.FK_GlumacPredstava_Predstava">
+      <End Role="Predstava" EntitySet="Predstavas" />
+      <End Role="GlumacPredstava" EntitySet="GlumacPredstava" />
+    </AssociationSet>
+    <AssociationSet Name="NajavaPredstava" Association="Model1.Store.NajavaPredstava">
+      <End Role="Najava" EntitySet="Najavas" />
+      <End Role="Predstava" EntitySet="Predstavas" />
+    </AssociationSet>
+    <AssociationSet Name="SalaProjekcija" Association="Model1.Store.SalaProjekcija">
+      <End Role="Sala" EntitySet="Salas" />
+      <End Role="Projekcija" EntitySet="Projekcijas" />
+    </AssociationSet>
+    <AssociationSet Name="ProjekcijaKarta" Association="Model1.Store.ProjekcijaKarta">
+      <End Role="Projekcija" EntitySet="Projekcijas" />
+      <End Role="Karta" EntitySet="Kartas" />
+    </AssociationSet>
+    <AssociationSet Name="SalaSediste" Association="Model1.Store.SalaSediste">
+      <End Role="Sala" EntitySet="Salas" />
+      <End Role="Sediste" EntitySet="Sedistes" />
+    </AssociationSet>
+    <AssociationSet Name="SedisteKarta" Association="Model1.Store.SedisteKarta">
+      <End Role="Sediste" EntitySet="Sedistes" />
+      <End Role="Karta" EntitySet="Kartas" />
+    </AssociationSet>
+    <AssociationSet Name="PozoristeKorisnik" Association="Model1.Store.PozoristeKorisnik">
+      <End Role="Korisnik" EntitySet="Korisniks" />
+      <End Role="Pozoriste" EntitySet="Pozoristes" />
+    </AssociationSet>
+    <AssociationSet Name="PozoristeRepertoar" Association="Model1.Store.PozoristeRepertoar">
+      <End Role="Pozoriste" EntitySet="Pozoristes" />
+      <End Role="Repertoar" EntitySet="Repertoars" />
+    </AssociationSet>
+    <AssociationSet Name="NajavaProjekcija" Association="Model1.Store.NajavaProjekcija">
+      <End Role="Najava" EntitySet="Najavas" />
+      <End Role="Projekcija" EntitySet="Projekcijas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Pozoristes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ulica" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Grad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Korisnik_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Repertoars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pozoriste_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Predstavas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Trajanje" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Projekcijas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PredstavaId" Type="int" Nullable="false" />
+    <Property Name="SalaId" Type="int" Nullable="false" />
+    <Property Name="PocetakPredstave" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KrajPredstave" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NajavaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Salas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PozoristeId" Type="int" Nullable="false" />
+    <Property Name="Kapacitet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sedistes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalaId" Type="int" Nullable="false" />
+    <Property Name="Red" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kolona" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Korisniks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sifra" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rola" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Najavas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RepertoarId" Type="int" Nullable="false" />
+    <Property Name="Predstava_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kartas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SedisteId" Type="int" Nullable="false" />
+    <Property Name="KorisnikId" Type="int" Nullable="true" />
+    <Property Name="ProjekcijaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Glumacs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GlumacPredstava">
+    <Key>
+      <PropertyRef Name="Glumacs_Id" />
+      <PropertyRef Name="Predstavas_Id" />
+    </Key>
+    <Property Name="Glumacs_Id" Type="int" Nullable="false" />
+    <Property Name="Predstavas_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PozoristeSala">
+    <End Role="Pozoriste" Type="Model1.Store.Pozoristes" Multiplicity="1" />
+    <End Role="Sala" Type="Model1.Store.Salas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozoriste">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sala">
+        <PropertyRef Name="PozoristeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NajavaPredstava">
+    <End Role="Najava" Type="Model1.Store.Najavas" Multiplicity="*" />
+    <End Role="Predstava" Type="Model1.Store.Predstavas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Predstava">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Najava">
+        <PropertyRef Name="Predstava_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SalaProjekcija">
+    <End Role="Sala" Type="Model1.Store.Salas" Multiplicity="1" />
+    <End Role="Projekcija" Type="Model1.Store.Projekcijas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sala">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Projekcija">
+        <PropertyRef Name="SalaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjekcijaKarta">
+    <End Role="Projekcija" Type="Model1.Store.Projekcijas" Multiplicity="1" />
+    <End Role="Karta" Type="Model1.Store.Kartas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projekcija">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="ProjekcijaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SalaSediste">
+    <End Role="Sala" Type="Model1.Store.Salas" Multiplicity="1" />
+    <End Role="Sediste" Type="Model1.Store.Sedistes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sala">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sediste">
+        <PropertyRef Name="SalaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SedisteKarta">
+    <End Role="Sediste" Type="Model1.Store.Sedistes" Multiplicity="1" />
+    <End Role="Karta" Type="Model1.Store.Kartas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sediste">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="SedisteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PozoristeKorisnik">
+    <End Role="Korisnik" Type="Model1.Store.Korisniks" Multiplicity="1" />
+    <End Role="Pozoriste" Type="Model1.Store.Pozoristes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pozoriste">
+        <PropertyRef Name="Korisnik_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PozoristeRepertoar">
+    <End Role="Pozoriste" Type="Model1.Store.Pozoristes" Multiplicity="1" />
+    <End Role="Repertoar" Type="Model1.Store.Repertoars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozoriste">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Repertoar">
+        <PropertyRef Name="Pozoriste_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NajavaProjekcija">
+    <End Role="Najava" Type="Model1.Store.Najavas" Multiplicity="1" />
+    <End Role="Projekcija" Type="Model1.Store.Projekcijas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Najava">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Projekcija">
+        <PropertyRef Name="NajavaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GlumacPredstava_Glumac">
+    <End Role="Glumac" Type="Model1.Store.Glumacs" Multiplicity="1" />
+    <End Role="GlumacPredstava" Type="Model1.Store.GlumacPredstava" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Glumac">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GlumacPredstava">
+        <PropertyRef Name="Glumacs_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GlumacPredstava_Predstava">
+    <End Role="GlumacPredstava" Type="Model1.Store.GlumacPredstava" Multiplicity="*" />
+    <End Role="Predstava" Type="Model1.Store.Predstavas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Predstava">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GlumacPredstava">
+        <PropertyRef Name="Predstavas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pozoristes" EntityType="Model1.Pozoriste" />
+          <EntitySet Name="Repertoars" EntityType="Model1.Repertoar" />
+          <EntitySet Name="Predstavas" EntityType="Model1.Predstava" />
+          <EntitySet Name="Projekcijas" EntityType="Model1.Projekcija" />
+          <EntitySet Name="Salas" EntityType="Model1.Sala" />
+          <EntitySet Name="Sedistes" EntityType="Model1.Sediste" />
+          <EntitySet Name="Korisniks" EntityType="Model1.Korisnik" />
+          <EntitySet Name="Najavas" EntityType="Model1.Najava" />
+          <EntitySet Name="Kartas" EntityType="Model1.Karta" />
+          <EntitySet Name="Glumacs" EntityType="Model1.Glumac" />
+          <AssociationSet Name="PozoristeSala" Association="Model1.PozoristeSala">
+            <End Role="Pozoriste" EntitySet="Pozoristes" />
+            <End Role="Sala" EntitySet="Salas" />
+          </AssociationSet>
+          <AssociationSet Name="GlumacPredstava" Association="Model1.GlumacPredstava">
+            <End Role="Glumac" EntitySet="Glumacs" />
+            <End Role="Predstava" EntitySet="Predstavas" />
+          </AssociationSet>
+          <AssociationSet Name="NajavaPredstava" Association="Model1.NajavaPredstava">
+            <End Role="Najava" EntitySet="Najavas" />
+            <End Role="Predstava" EntitySet="Predstavas" />
+          </AssociationSet>
+          <AssociationSet Name="SalaProjekcija" Association="Model1.SalaProjekcija">
+            <End Role="Sala" EntitySet="Salas" />
+            <End Role="Projekcija" EntitySet="Projekcijas" />
+          </AssociationSet>
+          <AssociationSet Name="ProjekcijaKarta" Association="Model1.ProjekcijaKarta">
+            <End Role="Projekcija" EntitySet="Projekcijas" />
+            <End Role="Karta" EntitySet="Kartas" />
+          </AssociationSet>
+          <AssociationSet Name="SalaSediste" Association="Model1.SalaSediste">
+            <End Role="Sala" EntitySet="Salas" />
+            <End Role="Sediste" EntitySet="Sedistes" />
+          </AssociationSet>
+          <AssociationSet Name="SedisteKarta" Association="Model1.SedisteKarta">
+            <End Role="Sediste" EntitySet="Sedistes" />
+            <End Role="Karta" EntitySet="Kartas" />
+          </AssociationSet>
+          <AssociationSet Name="PozoristeKorisnik" Association="Model1.PozoristeKorisnik">
+            <End Role="Korisnik" EntitySet="Korisniks" />
+            <End Role="Pozoriste" EntitySet="Pozoristes" />
+          </AssociationSet>
+          <AssociationSet Name="PozoristeRepertoar" Association="Model1.PozoristeRepertoar">
+            <End Role="Pozoriste" EntitySet="Pozoristes" />
+            <End Role="Repertoar" EntitySet="Repertoars" />
+          </AssociationSet>
+          <AssociationSet Name="NajavaProjekcija" Association="Model1.NajavaProjekcija">
+            <End Role="Najava" EntitySet="Najavas" />
+            <End Role="Projekcija" EntitySet="Projekcijas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Pozoriste">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Ulica" Type="String" Nullable="false" />
+          <Property Name="Grad" Type="String" Nullable="false" />
+          <NavigationProperty Name="Salas" Relationship="Model1.PozoristeSala" FromRole="Pozoriste" ToRole="Sala" />
+          <NavigationProperty Name="Korisnik" Relationship="Model1.PozoristeKorisnik" FromRole="Pozoriste" ToRole="Korisnik" />
+          <NavigationProperty Name="Repertoar" Relationship="Model1.PozoristeRepertoar" FromRole="Pozoriste" ToRole="Repertoar" />
+        </EntityType>
+        <EntityType Name="Repertoar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <NavigationProperty Name="Pozoriste" Relationship="Model1.PozoristeRepertoar" FromRole="Repertoar" ToRole="Pozoriste" />
+        </EntityType>
+        <EntityType Name="Predstava">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Trajanje" Type="String" Nullable="false" />
+          <NavigationProperty Name="Glumacs" Relationship="Model1.GlumacPredstava" FromRole="Predstava" ToRole="Glumac" />
+          <NavigationProperty Name="Najavas" Relationship="Model1.NajavaPredstava" FromRole="Predstava" ToRole="Najava" />
+        </EntityType>
+        <EntityType Name="Projekcija">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PredstavaId" Type="Int32" Nullable="false" />
+          <Property Name="SalaId" Type="Int32" Nullable="false" />
+          <Property Name="PocetakPredstave" Type="String" Nullable="false" />
+          <Property Name="KrajPredstave" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sala" Relationship="Model1.SalaProjekcija" FromRole="Projekcija" ToRole="Sala" />
+          <NavigationProperty Name="Kartas" Relationship="Model1.ProjekcijaKarta" FromRole="Projekcija" ToRole="Karta" />
+          <NavigationProperty Name="Najava" Relationship="Model1.NajavaProjekcija" FromRole="Projekcija" ToRole="Najava" />
+          <Property Name="NajavaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sala">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PozoristeId" Type="Int32" Nullable="false" />
+          <Property Name="Kapacitet" Type="String" Nullable="false" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <NavigationProperty Name="Pozoriste" Relationship="Model1.PozoristeSala" FromRole="Sala" ToRole="Pozoriste" />
+          <NavigationProperty Name="Projekcijas" Relationship="Model1.SalaProjekcija" FromRole="Sala" ToRole="Projekcija" />
+          <NavigationProperty Name="Sedistes" Relationship="Model1.SalaSediste" FromRole="Sala" ToRole="Sediste" />
+        </EntityType>
+        <EntityType Name="Sediste">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalaId" Type="Int32" Nullable="false" />
+          <Property Name="Red" Type="String" Nullable="false" />
+          <Property Name="Kolona" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sala" Relationship="Model1.SalaSediste" FromRole="Sediste" ToRole="Sala" />
+          <NavigationProperty Name="Kartas" Relationship="Model1.SedisteKarta" FromRole="Sediste" ToRole="Karta" />
+        </EntityType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Sifra" Type="String" Nullable="false" />
+          <Property Name="Rola" Type="String" Nullable="false" />
+          <NavigationProperty Name="Pozoriste" Relationship="Model1.PozoristeKorisnik" FromRole="Korisnik" ToRole="Pozoriste" />
+        </EntityType>
+        <EntityType Name="Najava">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RepertoarId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Predstava" Relationship="Model1.NajavaPredstava" FromRole="Najava" ToRole="Predstava" />
+          <NavigationProperty Name="Projekcijas" Relationship="Model1.NajavaProjekcija" FromRole="Najava" ToRole="Projekcija" />
+        </EntityType>
+        <EntityType Name="Karta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SedisteId" Type="Int32" Nullable="false" />
+          <Property Name="KorisnikId" Type="Int32" Nullable="true" />
+          <Property Name="ProjekcijaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Projekcija" Relationship="Model1.ProjekcijaKarta" FromRole="Karta" ToRole="Projekcija" />
+          <NavigationProperty Name="Sediste" Relationship="Model1.SedisteKarta" FromRole="Karta" ToRole="Sediste" />
+        </EntityType>
+        <EntityType Name="Glumac">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" Nullable="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" />
+          <NavigationProperty Name="Predstavas" Relationship="Model1.GlumacPredstava" FromRole="Glumac" ToRole="Predstava" />
+        </EntityType>
+        <Association Name="PozoristeSala">
+          <End Type="Model1.Pozoriste" Role="Pozoriste" Multiplicity="1" />
+          <End Type="Model1.Sala" Role="Sala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozoriste">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sala">
+              <PropertyRef Name="PozoristeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GlumacPredstava">
+          <End Type="Model1.Glumac" Role="Glumac" Multiplicity="*" />
+          <End Type="Model1.Predstava" Role="Predstava" Multiplicity="*" />
+        </Association>
+        <Association Name="NajavaPredstava">
+          <End Type="Model1.Najava" Role="Najava" Multiplicity="*" />
+          <End Type="Model1.Predstava" Role="Predstava" Multiplicity="1" />
+        </Association>
+        <Association Name="SalaProjekcija">
+          <End Type="Model1.Sala" Role="Sala" Multiplicity="1" />
+          <End Type="Model1.Projekcija" Role="Projekcija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sala">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Projekcija">
+              <PropertyRef Name="SalaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjekcijaKarta">
+          <End Type="Model1.Projekcija" Role="Projekcija" Multiplicity="1" />
+          <End Type="Model1.Karta" Role="Karta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekcija">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Karta">
+              <PropertyRef Name="ProjekcijaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SalaSediste">
+          <End Type="Model1.Sala" Role="Sala" Multiplicity="1" />
+          <End Type="Model1.Sediste" Role="Sediste" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sala">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sediste">
+              <PropertyRef Name="SalaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SedisteKarta">
+          <End Type="Model1.Sediste" Role="Sediste" Multiplicity="1" />
+          <End Type="Model1.Karta" Role="Karta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sediste">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Karta">
+              <PropertyRef Name="SedisteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PozoristeKorisnik">
+          <End Type="Model1.Korisnik" Role="Korisnik" Multiplicity="1" />
+          <End Type="Model1.Pozoriste" Role="Pozoriste" Multiplicity="0..1" />
+        </Association>
+        <Association Name="PozoristeRepertoar">
+          <End Type="Model1.Pozoriste" Role="Pozoriste" Multiplicity="1" />
+          <End Type="Model1.Repertoar" Role="Repertoar" Multiplicity="0..1" />
+        </Association>
+        <Association Name="NajavaProjekcija">
+          <End Type="Model1.Najava" Role="Najava" Multiplicity="1" />
+          <End Type="Model1.Projekcija" Role="Projekcija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Najava">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Projekcija">
+              <PropertyRef Name="NajavaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container3">
+    <EntitySetMapping Name="Pozoristes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Pozoriste)">
+        <MappingFragment StoreEntitySet="Pozoristes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Grad" ColumnName="Grad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repertoars">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Repertoar)">
+        <MappingFragment StoreEntitySet="Repertoars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Predstavas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Predstava)">
+        <MappingFragment StoreEntitySet="Predstavas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Trajanje" ColumnName="Trajanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projekcijas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Projekcija)">
+        <MappingFragment StoreEntitySet="Projekcijas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PredstavaId" ColumnName="PredstavaId" />
+          <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+          <ScalarProperty Name="PocetakPredstave" ColumnName="PocetakPredstave" />
+          <ScalarProperty Name="KrajPredstave" ColumnName="KrajPredstave" />
+          <ScalarProperty Name="NajavaId" ColumnName="NajavaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sala)">
+        <MappingFragment StoreEntitySet="Salas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PozoristeId" ColumnName="PozoristeId" />
+          <ScalarProperty Name="Kapacitet" ColumnName="Kapacitet" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sedistes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sediste)">
+        <MappingFragment StoreEntitySet="Sedistes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+          <ScalarProperty Name="Red" ColumnName="Red" />
+          <ScalarProperty Name="Kolona" ColumnName="Kolona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisniks">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Korisnik)">
+        <MappingFragment StoreEntitySet="Korisniks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+          <ScalarProperty Name="Rola" ColumnName="Rola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Najavas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Najava)">
+        <MappingFragment StoreEntitySet="Najavas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RepertoarId" ColumnName="RepertoarId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kartas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Karta)">
+        <MappingFragment StoreEntitySet="Kartas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SedisteId" ColumnName="SedisteId" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="ProjekcijaId" ColumnName="ProjekcijaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Glumacs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Glumac)">
+        <MappingFragment StoreEntitySet="Glumacs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="GlumacPredstava" TypeName="Model1.GlumacPredstava" StoreEntitySet="GlumacPredstava">
+      <EndProperty Name="Glumac">
+        <ScalarProperty Name="Id" ColumnName="Glumacs_Id" />
+      </EndProperty>
+      <EndProperty Name="Predstava">
+        <ScalarProperty Name="Id" ColumnName="Predstavas_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="NajavaPredstava" TypeName="Model1.NajavaPredstava" StoreEntitySet="Najavas">
+      <EndProperty Name="Predstava">
+        <ScalarProperty Name="Id" ColumnName="Predstava_Id" />
+      </EndProperty>
+      <EndProperty Name="Najava">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PozoristeKorisnik" TypeName="Model1.PozoristeKorisnik" StoreEntitySet="Pozoristes">
+      <EndProperty Name="Korisnik">
+        <ScalarProperty Name="Id" ColumnName="Korisnik_Id" />
+      </EndProperty>
+      <EndProperty Name="Pozoriste">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PozoristeRepertoar" TypeName="Model1.PozoristeRepertoar" StoreEntitySet="Repertoars">
+      <EndProperty Name="Pozoriste">
+        <ScalarProperty Name="Id" ColumnName="Pozoriste_Id" />
+      </EndProperty>
+      <EndProperty Name="Repertoar">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

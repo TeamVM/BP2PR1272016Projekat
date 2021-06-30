@@ -1,0 +1,16 @@
+﻿<Window x:Class="PozoristeClient.View.DodajRepertoarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PozoristeClient.View"
+        mc:Ignorable="d"
+        Title="DodajRepertoarWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Naziv" HorizontalAlignment="Left" Margin="138,102,0,0" VerticalAlignment="Top" Width="101"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="298,106,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="181"/>
+        <Label Content="Pozoriste" HorizontalAlignment="Left" Height="26" Margin="115,264,0,0" VerticalAlignment="Top" Width="124"/>
+        <ComboBox HorizontalAlignment="Left" Height="28" Margin="115,332,0,0" VerticalAlignment="Top" Width="138"/>
+
+    </Grid>
+</Window>

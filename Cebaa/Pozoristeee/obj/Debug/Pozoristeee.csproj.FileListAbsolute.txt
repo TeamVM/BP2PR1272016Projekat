@@ -1,0 +1,10 @@
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\bin\Debug\Pozoristeee.exe.config
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\bin\Debug\Pozoristeee.exe
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\bin\Debug\Pozoristeee.pdb
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\bin\Debug\EntityFramework.dll
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\bin\Debug\EntityFramework.SqlServer.dll
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\bin\Debug\EntityFramework.xml
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\bin\Debug\EntityFramework.SqlServer.xml
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\obj\Debug\Pozoristeee.csproj.CopyComplete
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\obj\Debug\Pozoristeee.exe
+D:\BP@\nnov\novv\Baze2Projekat-main\Cebaa\Pozoristeee\obj\Debug\Pozoristeee.pdb
